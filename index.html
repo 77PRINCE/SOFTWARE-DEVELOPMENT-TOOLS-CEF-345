@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A WEBSITE CALLED 'U-UP', helping bridge the gap between skilled techies and unskilled non-techies">
-  <title>U-UP</title>
+  <title>Fashion Haus</title>
   <link rel="icon" type="image/png" href="yoo.png">
   <link rel="stylesheet" href="style.css">
 
@@ -122,14 +122,14 @@
 
   <!-- Logo Box in Top Left Corner -->
   <div class="logo-box">
-    <div class="logo-text">U-up</div>
+    <div class="logo-text">Fashion Haus</div>
   </div>
 
   <!-- Login/Signup Form -->
   <div class="container">
     <div class="form-box">
-      <h1>Welcome to <span>U-up</span></h1>
-      <p>Bridge the gap between skilled techies and nonskilled-techies</p>
+      <h1>Welcome to <span>Fashion Haus</span></h1>
+      <p>Get the latest fashion products here</p>
       
       <!-- Login Form -->
       <form id="loginForm">
@@ -159,14 +159,34 @@
     function toggleLogin() {
       document.getElementById("loginForm").style.display = "block";
       document.getElementById("signupForm").style.display = "none";
-    }
+      if(username === "" || password === ""){
+        alert("Please fill all fields");
+        return;
+      }
+
+      // Auto-create test account
+      localStorage.setItem("user", username);
+
+      // Redirect
+      window.location.href = "welcome.html";
+    };
+    
 
     function handleLogin(event) {
       event.preventDefault();
       const username = document.querySelector('input[type="text"]').value;
       const password = document.querySelector('input[type="password"]').value;
-      alert(`Welcome ${username}! (Mock login)`);
-    }
+     if(username === "" || password === ""){
+        alert("Please fill all fields");
+        return;
+      }
+
+      // Auto-create test account
+      localStorage.setItem("user", username);
+
+      // Redirect
+      window.location.href = "welcome.html";
+    };
 
     document.getElementById("loginForm").addEventListener("submit", handleLogin);
   </script>
